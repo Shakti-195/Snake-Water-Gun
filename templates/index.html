@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Water Gun</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="difficulty-screen">
+        <div class="game-container">
+            <h1>Select Difficulty</h1>
+            <div class="choices">
+                <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+                <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <div class="game-container">
+            <div class="scoreboard">
+                <div class="scores">
+                    <div class="score">
+                        <span>Your Score</span>
+                        <span id="player-score">0</span>
+                    </div>
+                    <div class="score">
+                        <span>Time Left</span>
+                        <span id="time-left">30</span>
+                    </div>
+                    <div class="score">
+                        <span>High Score</span>
+                        <span id="high-score">0</span>
+                    </div>
+                </div>
+                <div class="game-controls">
+                    <button id="pause-btn">⏸️</button>
+                    <button id="mute-btn">🔊</button>
+                </div>
+            </div>
+
+            <h1>Snake Water Gun</h1>
+            <h2 id="round-counter">Round 1</h2>
+
+            <div class="game-display">
+                <div class="choice-display" id="player-choice-display"><p>You</p><span>?</span></div>
+                <div class="choice-display" id="computer-choice-display"><p>Computer</p><span>?</span></div>
+            </div>
+
+            <p id="prompt-text">Make your first move to start the timer!</p>
+
+            <div class="choices">
+                <button class="choice-btn" data-choice="1">🐍</button>
+                <button class="choice-btn" data-choice="-1">💧</button>
+                <button class="choice-btn" data-choice="0">🔫</button>
+                <button id="powerup-btn" title="Double Points on next win!">
+                    <span class="powerup-emoji">⚡</span>
+                    <span class="powerup-count" id="double-points-count">1</span>
+                </button>
+                <button id="extra-life-btn" title="Your next loss will be forgiven!">
+                    <span class="powerup-emoji">❤️</span>
+                    <span class="powerup-count" id="extra-life-count">1</span>
+                </button>
+            </div>
+
+            <div id="result-container">
+                <p id="result-text"></p>
+            </div>
+
+            <button id="reset-btn">Reset High Score</button>
+            <div id="outcome-animation-container"></div>
+            
+            <div id="game-over-overlay" class="hidden">
+                <div class="game-over-box">
+                    <h2>Time's Up!</h2>
+                    <p>Your final score is <span id="final-score">0</span></p>
+                    <button id="play-again-btn">Play Again</button>
+                </div>
+            </div>
+
+            <div id="pause-overlay" class="hidden">
+                <div class="game-over-box">
+                    <h2>Game Paused</h2>
+                    <button id="resume-btn">Resume</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="click-sound" src="{{ url_for('static', filename='sounds/click.mp3') }}" preload="auto"></audio>
+    <audio id="win-sound" src="{{ url_for('static', filename='sounds/win.mp3') }}" preload="auto"></audio>
+    <audio id="lose-sound" src="{{ url_for('static', filename='sounds/lose.mp3') }}" preload="auto"></audio>
+    <audio id="draw-sound" src="{{ url_for('static', filename='sounds/draw.mp3') }}" preload="auto"></audio>
+    <audio id="background-music" src="{{ url_for('static', filename='sounds/background-music.mp3') }}" loop preload="auto"></audio>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
