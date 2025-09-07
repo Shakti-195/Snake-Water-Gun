@@ -192,4 +192,4 @@ A passionate builder of smart, interactive tech experiences.
 
 ---
 
-If you'd like, I can help you write a CONTRIBUTING guide or prep it for GitHub Pages or deployment. Just say the word!
+
